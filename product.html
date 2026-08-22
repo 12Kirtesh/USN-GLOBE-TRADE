@@ -1,0 +1,1181 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Products | USN GLOBAL TRADE</title>
+
+    <meta name="description"
+        content="Explore premium natural and agricultural products sourced from Nepal by USN GLOBAL TRADE.">
+
+    <link rel="stylesheet" href="style.css">
+
+
+    <style>
+
+        /* =========================================
+           PRODUCT HERO
+        ========================================= */
+
+        .page-hero {
+            padding: 160px 0 90px;
+            background:
+                linear-gradient(
+                    rgba(7,28,44,.82),
+                    rgba(7,28,44,.82)
+                ),
+                url("https://images.unsplash.com/photo-1471943311424-646960669fbc?auto=format&fit=crop&w=1800&q=85");
+
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .page-hero h1 {
+            margin-top: 15px;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(45px, 6vw, 70px);
+            line-height: 1.1;
+        }
+
+        .page-hero h1 span {
+            color: #d1a44e;
+        }
+
+        .page-hero p:last-child {
+            max-width: 650px;
+            margin-top: 20px;
+            color: rgba(255,255,255,.75);
+            line-height: 1.8;
+        }
+
+
+        /* =========================================
+           CATALOGUE
+        ========================================= */
+
+        .catalogue {
+            padding: 110px 0;
+            background: #f8f7f3;
+        }
+
+
+        /* =========================================
+           PRODUCT GRID
+        ========================================= */
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+
+        /* =========================================
+           PRODUCT CARD
+        ========================================= */
+
+        .product-card {
+            background: #ffffff;
+            border: 1px solid #e6e1d7;
+            overflow: hidden;
+            position: relative;
+            transition: all .35s ease;
+            box-shadow:
+                0 8px 25px rgba(7,28,44,.06);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow:
+                0 25px 55px rgba(7,28,44,.15);
+        }
+
+
+        /* =========================================
+           PRODUCT IMAGE
+        ========================================= */
+
+        .product-image-wrap {
+            height: 330px;
+            background: #f1eee7;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .6s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.08);
+        }
+
+
+        /* =========================================
+           IMAGE PLACEHOLDER
+        ========================================= */
+
+        .product-placeholder {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            place-items: center;
+            font-size: 60px;
+            color: #b88b3b;
+        }
+
+
+        /* =========================================
+           PRODUCT INFORMATION
+        ========================================= */
+
+        .product-info {
+            padding: 28px;
+        }
+
+        .product-category {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #b88b3b;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .product-info h3 {
+            margin: 8px 0 12px;
+            font-family: "Playfair Display", serif;
+            font-size: 28px;
+            color: #102f3f;
+        }
+
+        .product-info p {
+            min-height: 65px;
+            color: #71808a;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+
+        /* =========================================
+           PRICE
+        ========================================= */
+
+        .product-price {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: 800;
+            color: #1f7a4d;
+        }
+
+
+        /* =========================================
+           ENQUIRE BUTTON
+        ========================================= */
+
+        .product-enquire {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 22px;
+            padding: 13px 22px;
+            background: #102f3f;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: .5px;
+            transition: all .3s ease;
+        }
+
+        .product-enquire:hover {
+            background: #c89d49;
+            color: #102f3f;
+            transform: translateX(3px);
+        }
+
+
+        /* =========================================
+           LOADING / ERROR
+        ========================================= */
+
+        .loading-message,
+        .error-message,
+        .empty-message {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 80px 25px;
+            background: white;
+            border: 1px solid #e6e1d7;
+        }
+
+        .loading-message h3,
+        .error-message h3,
+        .empty-message h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 28px;
+            color: #102f3f;
+            margin-bottom: 10px;
+        }
+
+        .loading-message p,
+        .error-message p,
+        .empty-message p {
+            color: #71808a;
+            line-height: 1.7;
+        }
+
+        .error-message {
+            border-top: 4px solid #a63d32;
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 1000px) {
+
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .page-hero {
+                padding: 130px 0 70px;
+            }
+
+            .catalogue {
+                padding: 75px 0;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-image-wrap {
+                height: 300px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header class="header">
+
+    <div class="container navbar">
+
+
+        <a href="index.html" class="logo">
+
+            <div class="logo-mark">
+                USN
+            </div>
+
+            <div class="logo-text">
+
+                <strong>
+                    USN GLOBAL TRADE
+                </strong>
+
+                <small>
+                    NEPAL • GLOBAL COMMERCE
+                </small>
+
+            </div>
+
+        </a>
+
+
+
+        <nav>
+
+            <ul
+                class="nav-links"
+                id="navLinks">
+
+
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="about.html">
+                        About
+                    </a>
+                </li>
+
+
+                <li>
+                    <a
+                        href="products.html"
+                        class="active">
+                        Products
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="services.html">
+                        Services
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="contact.html">
+                        Contact
+                    </a>
+                </li>
+
+
+                <li>
+                    <a
+                        href="contact.html"
+                        class="nav-enquire">
+
+                        Enquire Now
+
+                    </a>
+                </li>
+
+
+            </ul>
+
+        </nav>
+
+
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button">
+
+            ☰
+
+        </button>
+
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section class="page-hero">
+
+    <div class="container">
+
+
+        <p class="section-label">
+            OUR PRODUCTS
+        </p>
+
+
+        <h1>
+
+            Quality from
+            <span>Nepal.</span>
+
+        </h1>
+
+
+        <p>
+
+            Explore our collection of natural and
+            agricultural products sourced from trusted
+            suppliers across Nepal.
+
+        </p>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     PRODUCT CATALOGUE
+========================================= -->
+
+<section class="catalogue">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+
+            <div>
+
+                <p class="section-label">
+                    PRODUCT COLLECTION
+                </p>
+
+
+                <h2>
+
+                    Explore Our
+                    <span>Catalogue.</span>
+
+                </h2>
+
+            </div>
+
+
+            <p>
+
+                For pricing, quantities, packaging and
+                international export enquiries, contact
+                our team directly.
+
+            </p>
+
+
+        </div>
+
+
+
+        <div
+            class="product-grid"
+            id="productGrid">
+
+
+            <div class="loading-message">
+
+                <h3>
+                    Loading products...
+                </h3>
+
+                <p>
+                    Please wait.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     ENQUIRY BANNER
+========================================= -->
+
+<section class="trade-banner">
+
+
+    <div class="container trade-content">
+
+
+        <div>
+
+
+            <p class="section-label light">
+                BULK & EXPORT ENQUIRIES
+            </p>
+
+
+            <h2>
+
+                Interested in our
+                <span>products?</span>
+
+            </h2>
+
+
+            <p>
+
+                Contact us for product details,
+                quantities, packaging and export enquiries.
+
+            </p>
+
+
+        </div>
+
+
+
+        <a
+            href="contact.html"
+            class="btn btn-light">
+
+            Send an Enquiry
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer class="footer">
+
+
+    <div class="container footer-grid">
+
+
+        <div>
+
+
+            <div class="logo footer-logo">
+
+
+                <div class="logo-mark">
+                    USN
+                </div>
+
+
+                <div class="logo-text">
+
+
+                    <strong>
+                        USN GLOBAL TRADE
+                    </strong>
+
+
+                    <small>
+                        NEPAL • GLOBAL COMMERCE
+                    </small>
+
+
+                </div>
+
+
+            </div>
+
+
+            <p>
+
+                Connecting quality Nepalese products
+                with global markets through trusted
+                international trade.
+
+            </p>
+
+
+        </div>
+
+
+
+        <div>
+
+
+            <h4>
+                QUICK LINKS
+            </h4>
+
+
+            <a href="index.html">
+                Home
+            </a>
+
+
+            <a href="about.html">
+                About
+            </a>
+
+
+            <a href="products.html">
+                Products
+            </a>
+
+
+            <a href="services.html">
+                Services
+            </a>
+
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+
+        </div>
+
+
+
+        <div>
+
+
+            <h4>
+                PRODUCTS
+            </h4>
+
+
+            <span>
+                Natural Honey
+            </span>
+
+
+            <span>
+                Mad Honey
+            </span>
+
+
+            <span>
+                Dry Fruits
+            </span>
+
+
+            <span>
+                Spices
+            </span>
+
+
+            <span>
+                Cereals
+            </span>
+
+
+        </div>
+
+
+
+        <div>
+
+
+            <h4>
+                CONTACT
+            </h4>
+
+
+            <span>
+                usnglobaltradepvtltd@gmail.com
+            </span>
+
+
+            <span>
+                +977 982-7725511
+            </span>
+
+
+            <a href="contact.html">
+                Send Enquiry →
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="footer-bottom">
+
+
+        <div class="container">
+
+
+            <p>
+
+                ©
+                <span id="year"></span>
+                USN GLOBAL TRADE.
+                All rights reserved.
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+</footer>
+
+
+
+<!-- =========================================
+     SUPABASE
+========================================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script>
+
+
+/* =========================================
+   SUPABASE CONNECTION
+========================================= */
+
+const SUPABASE_URL =
+    "https://dvyqeiftxliczhllpvvc.supabase.co";
+
+
+const SUPABASE_ANON_KEY =
+    "sb_publishable_ZulvWci7BNTGbGpiJjoBvQ_pwZu32XV";
+
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_ANON_KEY
+    );
+
+
+
+/* =========================================
+   GET PRODUCT IMAGE
+========================================= */
+
+function getProductImage(product) {
+
+
+    return (
+
+        product.image_url ||
+
+        product.image ||
+
+        product.product_image ||
+
+        product.imageUrl ||
+
+        ""
+
+    );
+
+}
+
+
+
+/* =========================================
+   LOAD PRODUCTS
+========================================= */
+
+async function loadProducts() {
+
+
+    const grid =
+        document.getElementById(
+            "productGrid"
+        );
+
+
+    grid.innerHTML = `
+
+        <div class="loading-message">
+
+            <h3>
+                Loading products...
+            </h3>
+
+            <p>
+                Please wait.
+            </p>
+
+        </div>
+
+    `;
+
+
+    try {
+
+
+        const {
+            data,
+            error
+        } = await supabaseClient
+
+            .from("products")
+
+            .select("*")
+
+            .order(
+                "id",
+                {
+                    ascending: false
+                }
+            );
+
+
+
+        if (error) {
+
+
+            console.error(
+                "SUPABASE ERROR:",
+                error
+            );
+
+
+            grid.innerHTML = `
+
+                <div class="error-message">
+
+                    <h3>
+                        Products could not be loaded
+                    </h3>
+
+                    <p>
+                        ${error.message}
+                    </p>
+
+                </div>
+
+            `;
+
+
+            return;
+
+        }
+
+
+
+        if (
+            !data ||
+            data.length === 0
+        ) {
+
+
+            grid.innerHTML = `
+
+                <div class="empty-message">
+
+                    <h3>
+                        No products available
+                    </h3>
+
+                    <p>
+                        Products will appear here
+                        once they are added.
+                    </p>
+
+                </div>
+
+            `;
+
+
+            return;
+
+        }
+
+
+
+        let productsHTML = "";
+
+
+
+        data.forEach(
+            function(product) {
+
+
+                const name =
+                    product.name ||
+                    product.product_name ||
+                    "Product";
+
+
+                const category =
+                    product.category ||
+                    "PRODUCT";
+
+
+                const description =
+                    product.description ||
+                    "Premium quality product sourced from Nepal.";
+
+
+                const imageURL =
+                    getProductImage(
+                        product
+                    );
+
+
+                const price =
+                    Number(
+                        product.price || 0
+                    );
+
+
+
+                let imageHTML = `
+
+                    <div
+                        class="product-placeholder">
+
+                        📦
+
+                    </div>
+
+                `;
+
+
+
+                if (imageURL) {
+
+
+                    imageHTML = `
+
+                        <img
+
+                            src="${imageURL}"
+
+                            class="product-image"
+
+                            alt="${name}"
+
+                            loading="lazy"
+
+                            onerror="
+
+                                this.style.display='none';
+
+                                this.parentElement.innerHTML =
+                                '<div class=&quot;product-placeholder&quot;>📦</div>';
+
+                            "
+
+                        >
+
+                    `;
+
+                }
+
+
+
+                productsHTML += `
+
+
+                    <article
+                        class="product-card">
+
+
+                        <div
+                            class="product-image-wrap">
+
+
+                            ${imageHTML}
+
+
+                        </div>
+
+
+
+                        <div
+                            class="product-info">
+
+
+                            <span
+                                class="product-category">
+
+                                ${category}
+
+                            </span>
+
+
+
+                            <h3>
+
+                                ${name}
+
+                            </h3>
+
+
+
+                            <p>
+
+                                ${description}
+
+                            </p>
+
+
+
+                            ${
+                                price > 0
+
+                                ?
+
+                                `
+
+                                <div
+                                    class="product-price">
+
+                                    NPR
+                                    ${price.toLocaleString()}
+
+                                </div>
+
+                                `
+
+                                :
+
+                                ""
+
+                            }
+
+
+
+                            <a
+                                href="contact.html"
+                                class="product-enquire">
+
+                                Send Enquiry →
+
+                            </a>
+
+
+                        </div>
+
+
+                    </article>
+
+
+                `;
+
+            }
+        );
+
+
+
+        grid.innerHTML =
+            productsHTML;
+
+
+    }
+
+
+    catch (error) {
+
+
+        console.error(
+            "Unexpected error:",
+            error
+        );
+
+
+        grid.innerHTML = `
+
+            <div class="error-message">
+
+                <h3>
+                    Something went wrong
+                </h3>
+
+                <p>
+                    ${error.message}
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+
+/* =========================================
+   MOBILE MENU
+========================================= */
+
+const menuToggle =
+    document.getElementById(
+        "menuToggle"
+    );
+
+
+const navLinks =
+    document.getElementById(
+        "navLinks"
+    );
+
+
+if (
+    menuToggle &&
+    navLinks
+) {
+
+
+    menuToggle.addEventListener(
+        "click",
+        function() {
+
+
+            navLinks.classList.toggle(
+                "active"
+            );
+
+
+        }
+    );
+
+
+}
+
+
+
+/* =========================================
+   FOOTER YEAR
+========================================= */
+
+document.getElementById(
+    "year"
+).textContent =
+    new Date().getFullYear();
+
+
+
+/* =========================================
+   START
+========================================= */
+
+loadProducts();
+
+
+</script>
+
+
+</body>
+
+</html>
+```
