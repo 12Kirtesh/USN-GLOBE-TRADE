@@ -6,14 +6,518 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
     <title>Contact | USN GLOBAL TRADE</title>
 
     <meta name="description"
-        content="Contact USN GLOBAL TRADE for product enquiries, sourcing, import and export requirements.">
+        content="Contact USN GLOBAL TRADE for product sourcing, export and international trade enquiries.">
 
     <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================================
+           CONTACT PAGE
+        ========================================= */
+
+        .contact-hero {
+            min-height: 650px;
+            padding: 170px 0 100px;
+            position: relative;
+            overflow: hidden;
+            background:
+                linear-gradient(
+                    110deg,
+                    rgba(5, 24, 37, .97),
+                    rgba(8, 43, 57, .88)
+                ),
+                url("https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=1800&q=85");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+
+        .contact-hero::after {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            border: 1px solid rgba(207, 163, 78, .25);
+            right: -180px;
+            bottom: -200px;
+        }
+
+
+        .contact-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+
+        .contact-hero h1 {
+            margin: 15px 0 25px;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(48px, 7vw, 82px);
+            line-height: 1.02;
+        }
+
+
+        .contact-hero h1 span {
+            color: #d1a44e;
+        }
+
+
+        .contact-hero p:last-child {
+            max-width: 650px;
+            color: rgba(255,255,255,.72);
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+
+        /* =========================================
+           MAIN CONTACT
+        ========================================= */
+
+        .contact-main {
+            padding: 100px 0;
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(207,163,78,.10),
+                    transparent 30%
+                ),
+                #f5f3ed;
+        }
+
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: .8fr 1.2fr;
+            gap: 45px;
+            align-items: start;
+        }
+
+
+        /* =========================================
+           LEFT SIDE
+        ========================================= */
+
+        .contact-intro h2 {
+            margin: 12px 0 20px;
+            font-family: "Playfair Display", serif;
+            font-size: 48px;
+            line-height: 1.1;
+            color: #082638;
+        }
+
+
+        .contact-intro h2 span {
+            color: #b58a3d;
+        }
+
+
+        .contact-intro > p {
+            color: #65747d;
+            line-height: 1.8;
+            margin-bottom: 35px;
+        }
+
+
+        .contact-cards {
+            display: grid;
+            gap: 14px;
+        }
+
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 22px;
+            background: white;
+            border: 1px solid #e3dfd5;
+            transition: .3s ease;
+        }
+
+
+        .contact-card:hover {
+            transform: translateX(7px);
+            border-color: #cba04f;
+            box-shadow: 0 15px 35px rgba(8,38,56,.08);
+        }
+
+
+        .contact-icon {
+            width: 52px;
+            height: 52px;
+            min-width: 52px;
+            display: grid;
+            place-items: center;
+            background: #082638;
+            color: #d1a44e;
+            font-size: 21px;
+        }
+
+
+        .contact-card small {
+            display: block;
+            margin-bottom: 5px;
+            color: #b58a3d;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1.8px;
+        }
+
+
+        .contact-card strong {
+            color: #082638;
+            font-size: 14px;
+            word-break: break-word;
+        }
+
+
+        /* =========================================
+           FORM
+        ========================================= */
+
+        .enquiry-box {
+            position: relative;
+            padding: 42px;
+            background: #082638;
+            color: white;
+            box-shadow:
+                0 30px 70px rgba(8,38,56,.18);
+        }
+
+
+        .enquiry-box::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(
+                90deg,
+                #b58a3d,
+                #e3c476,
+                #b58a3d
+            );
+        }
+
+
+        .enquiry-box h2 {
+            margin: 12px 0 28px;
+            color: white;
+            font-family: "Playfair Display", serif;
+            font-size: 38px;
+        }
+
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: rgba(255,255,255,.8);
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid rgba(255,255,255,.16);
+            outline: none;
+            background: rgba(255,255,255,.07);
+            color: white;
+            padding: 14px 15px;
+            font-family: inherit;
+            font-size: 14px;
+            transition: .3s ease;
+        }
+
+
+        .form-group input {
+            height: 50px;
+        }
+
+
+        .form-group textarea {
+            min-height: 145px;
+            resize: vertical;
+        }
+
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255,255,255,.4);
+        }
+
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #d1a44e;
+            background: rgba(255,255,255,.1);
+        }
+
+
+        .send-button {
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            padding: 16px 25px;
+            background: #d1a44e;
+            color: #082638;
+            font-weight: 800;
+            letter-spacing: .5px;
+            font-size: 13px;
+            transition: .3s ease;
+        }
+
+
+        .send-button:hover {
+            background: #e4c375;
+            transform: translateY(-2px);
+        }
+
+
+        .send-button:disabled {
+            opacity: .6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+
+        #formMessage {
+            padding: 12px 0 0;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+
+        /* =========================================
+           BUSINESS SECTION
+        ========================================= */
+
+        .business-section {
+            padding: 90px 0;
+            background: #082638;
+            color: white;
+        }
+
+
+        .business-heading {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+
+        .business-heading h2 {
+            margin: 12px 0 15px;
+            color: white;
+            font-family: "Playfair Display", serif;
+            font-size: 45px;
+        }
+
+
+        .business-heading h2 span {
+            color: #d1a44e;
+        }
+
+
+        .business-heading p {
+            color: rgba(255,255,255,.65);
+            line-height: 1.8;
+        }
+
+
+        .business-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(3, 1fr);
+            gap: 20px;
+        }
+
+
+        .business-box {
+            padding: 30px;
+            border: 1px solid rgba(255,255,255,.12);
+            background: rgba(255,255,255,.035);
+            transition: .3s ease;
+        }
+
+
+        .business-box:hover {
+            border-color: rgba(209,164,78,.5);
+            transform: translateY(-5px);
+        }
+
+
+        .business-box span {
+            color: #d1a44e;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+
+        .business-box h3 {
+            margin: 15px 0 10px;
+            color: white;
+            font-family: "Playfair Display", serif;
+            font-size: 24px;
+        }
+
+
+        .business-box p {
+            color: rgba(255,255,255,.6);
+            line-height: 1.7;
+            font-size: 13px;
+        }
+
+
+        /* =========================================
+           CTA
+        ========================================= */
+
+        .contact-cta {
+            padding: 80px 0;
+            background: #f5f3ed;
+        }
+
+
+        .cta-box {
+            padding: 55px;
+            background:
+                linear-gradient(
+                    110deg,
+                    #b58a3d,
+                    #d8b461
+                );
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+
+
+        .cta-box h2 {
+            margin: 8px 0;
+            color: #082638;
+            font-family: "Playfair Display", serif;
+            font-size: 40px;
+        }
+
+
+        .cta-box p {
+            margin: 0;
+            color: rgba(8,38,56,.75);
+        }
+
+
+        .cta-button {
+            display: inline-block;
+            padding: 14px 25px;
+            background: #082638;
+            color: white;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 900px) {
+
+            .contact-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .business-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .contact-hero {
+                min-height: 560px;
+                padding: 140px 0 80px;
+            }
+
+            .contact-main {
+                padding: 65px 0;
+            }
+
+            .contact-intro h2 {
+                font-size: 38px;
+            }
+
+            .enquiry-box {
+                padding: 28px 20px;
+            }
+
+            .enquiry-box h2 {
+                font-size: 31px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .form-group.full {
+                grid-column: auto;
+            }
+
+            .business-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-box {
+                padding: 35px 25px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cta-box h2 {
+                font-size: 32px;
+            }
+
+        }
+
+    </style>
 
 </head>
 
@@ -42,7 +546,7 @@
                 </strong>
 
                 <small>
-                    GLOBAL COMMERCE
+                    NEPAL • GLOBAL COMMERCE
                 </small>
 
             </div>
@@ -79,15 +583,16 @@
                 </li>
 
                 <li>
-                    <a href="contact.html" class="active">
+                    <a href="contact.html">
                         Contact
                     </a>
                 </li>
 
                 <li>
-                    <a href="cart.html">
-                        🛒 Cart
-                        <span id="cartCount">0</span>
+                    <a
+                        href="contact.html"
+                        class="nav-enquire">
+                        Enquire Now
                     </a>
                 </li>
 
@@ -99,9 +604,10 @@
         <button
             class="menu-toggle"
             id="menuToggle"
-            type="button"
-        >
+            type="button">
+
             ☰
+
         </button>
 
     </div>
@@ -109,121 +615,70 @@
 </header>
 
 
-
 <!-- =========================================
-     CONTACT HERO
+     HERO
 ========================================= -->
 
-<section class="hero">
+<section class="contact-hero">
 
-    <div class="container hero-content">
+    <div class="container contact-hero-content">
 
-        <div class="hero-text">
+        <p class="section-label">
+            CONTACT US
+        </p>
 
-            <p class="eyebrow">
-                GET IN TOUCH • USN GLOBAL TRADE
-            </p>
+        <h1>
+            Let's Start a
+            <span>Conversation.</span>
+        </h1>
 
-            <h1>
-                Let's Talk
-                <span>Business.</span>
-            </h1>
-
-            <p class="hero-description">
-
-                Have a product enquiry, sourcing requirement,
-                import requirement or export opportunity?
-                Send us a message and our team will get back
-                to you.
-
-            </p>
-
-            <div class="hero-buttons">
-
-                <a
-                    href="products.html"
-                    class="btn btn-primary"
-                >
-                    View Products
-                </a>
-
-                <a
-                    href="https://wa.me/9779843115142"
-                    target="_blank"
-                    class="btn btn-outline"
-                >
-                    WhatsApp Us
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <div class="hero-card">
-
-            <div class="hero-card-icon">
-                ✉
-            </div>
-
-            <h3>
-                Business Enquiries
-            </h3>
-
-            <div class="hero-line"></div>
-
-            <p>
-                We are ready to discuss products,
-                sourcing and international trade.
-            </p>
-
-            <span>
-                USN GLOBAL TRADE
-            </span>
-
-        </div>
+        <p>
+            Whether you are looking for premium
+            Nepalese products, reliable sourcing
+            partners or international trade
+            opportunities, our team is ready to
+            hear from you.
+        </p>
 
     </div>
 
 </section>
 
 
-
 <!-- =========================================
-     CONTACT SECTION
+     CONTACT MAIN
 ========================================= -->
 
-<section class="section contact">
+<section class="contact-main">
 
-    <div class="container contact-grid">
+    <div class="container contact-layout">
 
 
-        <!-- CONTACT INFORMATION -->
+        <!-- LEFT -->
 
-        <div class="contact-info">
+        <div class="contact-intro">
 
             <p class="section-label">
-                CONTACT US
+                GET IN TOUCH
             </p>
 
             <h2>
-                Start A
-                <span>Conversation.</span>
+                Let's Talk
+                <span>Business.</span>
             </h2>
 
             <p>
-
-                Tell us what you are looking for.
-                We will review your enquiry and
-                contact you with the required information.
-
+                Send us your requirements and our
+                team will get back to you regarding
+                products, sourcing, quantities,
+                packaging and export opportunities.
             </p>
 
 
-            <div class="contact-details">
+            <div class="contact-cards">
 
 
-                <div class="contact-item">
+                <div class="contact-card">
 
                     <div class="contact-icon">
                         ✉
@@ -244,7 +699,7 @@
                 </div>
 
 
-                <div class="contact-item">
+                <div class="contact-card">
 
                     <div class="contact-icon">
                         ☎
@@ -265,20 +720,41 @@
                 </div>
 
 
-                <div class="contact-item">
+                <div class="contact-card">
 
                     <div class="contact-icon">
-                        💬
+                        ◎
                     </div>
 
                     <div>
 
                         <small>
-                            WHATSAPP
+                            LOCATION
                         </small>
 
                         <strong>
-                            +977 9843115142
+                            Nepal
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-card">
+
+                    <div class="contact-icon">
+                        ◷
+                    </div>
+
+                    <div>
+
+                        <small>
+                            BUSINESS HOURS
+                        </small>
+
+                        <strong>
+                            Sunday – Friday
                         </strong>
 
                     </div>
@@ -291,35 +767,68 @@
         </div>
 
 
+        <!-- FORM -->
 
-        <!-- CONTACT FORM -->
+        <div class="enquiry-box">
 
-        <div class="contact-form-wrapper">
+            <p class="section-label">
+                SEND AN ENQUIRY
+            </p>
+
+            <h2>
+                Tell Us What You Need.
+            </h2>
 
 
-            <form
-                id="contactForm"
-                onsubmit="return false;"
-            >
+            <form id="enquiryForm">
 
 
-                <div class="form-row">
+                <div class="form-grid">
 
 
                     <div class="form-group">
 
                         <label for="name">
-                            Name *
+                            Full Name *
                         </label>
 
                         <input
                             type="text"
                             id="name"
                             name="name"
-                            placeholder="Your name"
-                            autocomplete="name"
-                            required
-                        >
+                            placeholder="Your full name"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email *
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="your@email.com"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Phone
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="+977">
 
                     </div>
 
@@ -334,71 +843,61 @@
                             type="text"
                             id="company"
                             name="company"
-                            placeholder="Company name"
-                            autocomplete="organization"
-                        >
+                            placeholder="Company name">
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label for="subject">
+                            Subject *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="subject"
+                            name="subject"
+                            placeholder="Product / sourcing enquiry"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label for="message">
+                            Message *
+                        </label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            placeholder="Tell us about your requirement..."
+                            required></textarea>
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <button
+                            type="submit"
+                            class="send-button"
+                            id="submitEnquiry">
+
+                            Send Enquiry →
+
+                        </button>
+
+                        <p id="formMessage"></p>
 
                     </div>
 
 
                 </div>
 
-
-
-                <div class="form-group">
-
-                    <label for="email">
-                        Email *
-                    </label>
-
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Your email"
-                        autocomplete="email"
-                        required
-                    >
-
-                </div>
-
-
-
-                <div class="form-group">
-
-                    <label for="message">
-                        Message *
-                    </label>
-
-                    <textarea
-                        id="message"
-                        name="message"
-                        rows="6"
-                        placeholder="Tell us about your enquiry..."
-                        required
-                    ></textarea>
-
-                </div>
-
-
-
-                <button
-                    type="button"
-                    id="sendEnquiryButton"
-                    class="btn btn-primary form-button"
-                >
-                    Send Enquiry
-                </button>
-
-
-                <p
-                    id="formMessage"
-                    class="form-message"
-                ></p>
-
-
             </form>
-
 
         </div>
 
@@ -406,46 +905,141 @@
 
 </section>
 
+
+<!-- =========================================
+     BUSINESS SECTION
+========================================= -->
+
+<section class="business-section">
+
+    <div class="container">
+
+        <div class="business-heading">
+
+            <p class="section-label">
+                BUSINESS ENQUIRIES
+            </p>
+
+            <h2>
+                What Can We
+                <span>Help With?</span>
+            </h2>
+
+            <p>
+                We welcome enquiries from importers,
+                distributors, retailers and businesses
+                looking for Nepalese products.
+            </p>
+
+        </div>
+
+
+        <div class="business-grid">
+
+
+            <div class="business-box">
+
+                <span>
+                    01
+                </span>
+
+                <h3>
+                    Product Sourcing
+                </h3>
+
+                <p>
+                    Looking for a specific product
+                    from Nepal? Tell us what you need.
+                </p>
+
+            </div>
+
+
+            <div class="business-box">
+
+                <span>
+                    02
+                </span>
+
+                <h3>
+                    Bulk Orders
+                </h3>
+
+                <p>
+                    Contact us for larger quantities,
+                    packaging and order requirements.
+                </p>
+
+            </div>
+
+
+            <div class="business-box">
+
+                <span>
+                    03
+                </span>
+
+                <h3>
+                    Export Enquiries
+                </h3>
+
+                <p>
+                    Discuss international sourcing
+                    and export opportunities with us.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
 
 
 <!-- =========================================
      CTA
 ========================================= -->
 
-<section class="trade-banner">
+<section class="contact-cta">
 
-    <div class="container trade-content">
+    <div class="container">
 
-        <div>
+        <div class="cta-box">
 
-            <p class="section-label light">
-                HAVE A REQUIREMENT?
-            </p>
+            <div>
 
-            <h2>
-                Let's Work
-                <span>Together.</span>
-            </h2>
+                <p class="section-label">
+                    USN GLOBAL TRADE
+                </p>
 
-            <p>
-                Contact USN GLOBAL TRADE today.
-            </p>
+                <h2>
+                    From Nepal
+                    to the World.
+                </h2>
+
+                <p>
+                    Building trusted global trade
+                    connections.
+                </p>
+
+            </div>
+
+
+            <a
+                href="products.html"
+                class="cta-button">
+
+                Explore Products →
+
+            </a>
 
         </div>
-
-
-        <a
-            href="https://wa.me/9779843115142"
-            target="_blank"
-            class="btn btn-light"
-        >
-            WhatsApp Us
-        </a>
 
     </div>
 
 </section>
-
 
 
 <!-- =========================================
@@ -472,16 +1066,17 @@
                     </strong>
 
                     <small>
-                        GLOBAL COMMERCE
+                        NEPAL • GLOBAL COMMERCE
                     </small>
 
                 </div>
 
             </div>
 
+
             <p>
-                Connecting quality products with
-                global markets through trusted
+                Connecting quality Nepalese products
+                with global markets through trusted
                 international trade.
             </p>
 
@@ -524,7 +1119,7 @@
             </h4>
 
             <span>
-                Organic Honey
+                Natural Honey
             </span>
 
             <span>
@@ -560,8 +1155,8 @@
                 +977 9843115142
             </span>
 
-            <a href="cart.html">
-                🛒 View Cart
+            <a href="contact.html">
+                Send Enquiry →
             </a>
 
         </div>
@@ -575,11 +1170,9 @@
         <div class="container">
 
             <p>
-
                 © <span id="year"></span>
                 USN GLOBAL TRADE.
                 All rights reserved.
-
             </p>
 
         </div>
@@ -589,194 +1182,229 @@
 </footer>
 
 
-
-<!-- =========================================
-     WHATSAPP
-========================================= -->
-
-<a
-    href="https://wa.me/9779843115142"
-    class="whatsapp"
-    target="_blank"
-    aria-label="WhatsApp"
->
-
-    <span>
-        ☎
-    </span>
-
-</a>
-
-
-
-<!-- =========================================
-     SUPABASE
-========================================= -->
+<!-- SUPABASE -->
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 
-<!-- =========================================
-     CONTACT ENQUIRY
-========================================= -->
+<!-- CONTACT FORM -->
 
 <script>
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
 
-    const button =
-        document.getElementById("sendEnquiryButton");
-
-    const messageBox =
-        document.getElementById("formMessage");
-
-
-    if (!button) {
-        return;
-    }
-
-
-    button.addEventListener("click", async function () {
-
-        const name =
-            document.getElementById("name").value.trim();
-
-        const company =
-            document.getElementById("company").value.trim();
-
-        const email =
-            document.getElementById("email").value.trim();
-
-        const message =
-            document.getElementById("message").value.trim();
-
-
-        if (!name || !email || !message) {
-
-            messageBox.textContent =
-                "Please fill in Name, Email and Message.";
-
-            messageBox.style.color =
-                "#c0392b";
-
-            return;
-
-        }
-
-
-        button.disabled = true;
-
-        button.textContent =
-            "Sending...";
-
-
-        messageBox.textContent =
-            "Sending your enquiry...";
-
-        messageBox.style.color =
-            "#687780";
-
-
-        try {
-
-            const supabaseClient =
-                window.supabase.createClient(
-
-                    "https://dvyqeiftxliczhllpvvc.supabase.co",
-
-                    "sb_publishable_ZulvWci7BNTGbGpiJjoBvQ_pwZu32XV"
-
-                );
-
-
-            const result =
-                await supabaseClient
-                    .from("enquiries")
-                    .insert([
-                        {
-                            name: name,
-                            company: company || null,
-                            email: email,
-                            message: message
-                        }
-                    ]);
-
-
-            if (result.error) {
-
-                console.error(
-                    "Supabase enquiry error:",
-                    result.error
-                );
-
-                messageBox.textContent =
-                    "Unable to send enquiry. Please try again.";
-
-                messageBox.style.color =
-                    "#c0392b";
-
-                button.disabled = false;
-
-                button.textContent =
-                    "Send Enquiry";
-
-                return;
-
-            }
-
-
-            messageBox.textContent =
-                "✓ Enquiry sent successfully! Thank you.";
-
-            messageBox.style.color =
-                "#1f7a4d";
-
-
+        var form =
             document.getElementById(
-                "contactForm"
-            ).reset();
-
-
-            button.disabled = false;
-
-            button.textContent =
-                "Send Enquiry";
-
-
-        } catch (error) {
-
-            console.error(
-                "Enquiry error:",
-                error
+                "enquiryForm"
             );
 
+        var message =
+            document.getElementById(
+                "formMessage"
+            );
 
-            messageBox.textContent =
-                "Something went wrong. Please try again.";
+        var button =
+            document.getElementById(
+                "submitEnquiry"
+            );
 
-            messageBox.style.color =
-                "#c0392b";
+        var SUPABASE_URL =
+            "https://dvyqeiftxliczhllpvvc.supabase.co";
+
+        var SUPABASE_ANON_KEY =
+            "sb_publishable_ZulvWci7BNTGbGpiJjoBvQ_pwZu32XV";
+
+        var supabaseClient =
+            null;
 
 
-            button.disabled = false;
+        if (window.supabase) {
 
-            button.textContent =
-                "Send Enquiry";
+            supabaseClient =
+                window.supabase.createClient(
+                    SUPABASE_URL,
+                    SUPABASE_ANON_KEY
+                );
 
         }
 
-    });
 
-});
+        if (!form) {
+            return;
+        }
+
+
+        form.addEventListener(
+            "submit",
+            async function (event) {
+
+                event.preventDefault();
+
+
+                if (!supabaseClient) {
+
+                    message.style.color =
+                        "#ff8b8b";
+
+                    message.textContent =
+                        "Database connection unavailable.";
+
+                    return;
+
+                }
+
+
+                var name =
+                    document
+                        .getElementById("name")
+                        .value
+                        .trim();
+
+
+                var email =
+                    document
+                        .getElementById("email")
+                        .value
+                        .trim();
+
+
+                var phone =
+                    document
+                        .getElementById("phone")
+                        .value
+                        .trim();
+
+
+                var company =
+                    document
+                        .getElementById("company")
+                        .value
+                        .trim();
+
+
+                var subject =
+                    document
+                        .getElementById("subject")
+                        .value
+                        .trim();
+
+
+                var enquiryMessage =
+                    document
+                        .getElementById("message")
+                        .value
+                        .trim();
+
+
+                button.disabled = true;
+
+                button.textContent =
+                    "Sending...";
+
+
+                message.style.color =
+                    "#d1a44e";
+
+                message.textContent =
+                    "Sending your enquiry...";
+
+
+                try {
+
+                    var result =
+                        await supabaseClient
+                            .from("enquiries")
+                            .insert([
+                                {
+                                    name: name,
+                                    email: email,
+                                    phone: phone || null,
+                                    company: company || null,
+                                    subject: subject,
+                                    message: enquiryMessage
+                                }
+                            ]);
+
+
+                    if (result.error) {
+
+                        console.error(
+                            result.error
+                        );
+
+                        message.style.color =
+                            "#ff8b8b";
+
+                        message.textContent =
+                            "Unable to send enquiry. Please try again.";
+
+                        button.disabled = false;
+
+                        button.textContent =
+                            "Send Enquiry →";
+
+                        return;
+
+                    }
+
+
+                    message.style.color =
+                        "#8dd5a8";
+
+                    message.textContent =
+                        "✓ Enquiry sent successfully!";
+
+
+                    form.reset();
+
+                    button.disabled = false;
+
+                    button.textContent =
+                        "Enquiry Sent ✓";
+
+
+                } catch (error) {
+
+                    console.error(
+                        error
+                    );
+
+                    message.style.color =
+                        "#ff8b8b";
+
+                    message.textContent =
+                        "Something went wrong. Please try again.";
+
+                    button.disabled = false;
+
+                    button.textContent =
+                        "Send Enquiry →";
+
+                }
+
+            }
+        );
+
+
+        var year =
+            document.getElementById(
+                "year"
+            );
+
+        if (year) {
+
+            year.textContent =
+                new Date().getFullYear();
+
+        }
+
+    }
+
+);
 
 </script>
-
-
-<!-- =========================================
-     MAIN JAVASCRIPT
-========================================= -->
-
-<script src="script.js"></script>
 
 
 </body>

@@ -1,0 +1,1042 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Services | USN GLOBAL TRADE</title>
+
+    <meta name="description"
+        content="USN GLOBAL TRADE provides export, sourcing, supplier coordination and international trade support from Nepal.">
+
+    <link rel="stylesheet" href="style.css">
+
+
+    <style>
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .page-hero {
+            padding: 160px 0 90px;
+            background:
+                linear-gradient(
+                    rgba(7,28,44,.86),
+                    rgba(7,28,44,.86)
+                ),
+                url("https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=1800&q=85");
+
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .page-hero h1 {
+            margin-top: 15px;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(45px, 6vw, 70px);
+            line-height: 1.1;
+        }
+
+        .page-hero h1 span {
+            color: #d1a44e;
+        }
+
+        .page-hero p:last-child {
+            max-width: 680px;
+            margin-top: 20px;
+            color: rgba(255,255,255,.75);
+            line-height: 1.8;
+        }
+
+
+        /* =========================================
+           SERVICES SECTION
+        ========================================= */
+
+        .services-section {
+            padding: 110px 0;
+            background: #f8f7f3;
+        }
+
+        .centered {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 60px;
+        }
+
+        .centered h2 {
+            margin-top: 12px;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(38px, 5vw, 55px);
+            color: #102f3f;
+        }
+
+        .centered h2 span {
+            color: #b88b3b;
+        }
+
+        .centered > p:last-child {
+            margin-top: 18px;
+            color: #71808a;
+            line-height: 1.8;
+        }
+
+
+        /* =========================================
+           SERVICE GRID
+        ========================================= */
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+
+        /* =========================================
+           SERVICE CARD
+        ========================================= */
+
+        .service-card {
+            position: relative;
+            background: white;
+            padding: 38px 32px;
+            border: 1px solid #e4dfd5;
+            min-height: 320px;
+            overflow: hidden;
+            transition: all .35s ease;
+        }
+
+        .service-card::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 0;
+            background: #c89d49;
+            transition: height .35s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow:
+                0 25px 50px rgba(7,28,44,.12);
+        }
+
+        .service-card:hover::before {
+            height: 100%;
+        }
+
+
+        /* =========================================
+           SERVICE NUMBER
+        ========================================= */
+
+        .service-number {
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #c89d49;
+            margin-bottom: 22px;
+        }
+
+
+        /* =========================================
+           SERVICE TITLE
+        ========================================= */
+
+        .service-card h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 27px;
+            color: #102f3f;
+            margin-bottom: 15px;
+        }
+
+
+        /* =========================================
+           SERVICE TEXT
+        ========================================= */
+
+        .service-card p {
+            color: #71808a;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+
+        /* =========================================
+           SERVICE LINK
+        ========================================= */
+
+        .service-card a {
+            display: inline-flex;
+            align-items: center;
+            color: #102f3f;
+            font-size: 12px;
+            font-weight: 800;
+            text-decoration: none;
+            transition: .3s ease;
+        }
+
+        .service-card a:hover {
+            color: #b88b3b;
+            transform: translateX(5px);
+        }
+
+
+        /* =========================================
+           PROCESS
+        ========================================= */
+
+        .process-section {
+            padding: 110px 0;
+            background: #ffffff;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 60px;
+        }
+
+        .process-step {
+            position: relative;
+            padding: 35px 25px;
+            background: #f8f7f3;
+            border: 1px solid #e5e0d7;
+            transition: .3s ease;
+        }
+
+        .process-step:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 35px rgba(7,28,44,.09);
+        }
+
+        .process-step > span {
+            display: inline-flex;
+            width: 45px;
+            height: 45px;
+            align-items: center;
+            justify-content: center;
+            background: #102f3f;
+            color: #d1a44e;
+            font-size: 12px;
+            font-weight: 800;
+            margin-bottom: 22px;
+        }
+
+        .process-step h3 {
+            font-family: "Playfair Display", serif;
+            color: #102f3f;
+            font-size: 23px;
+            margin-bottom: 12px;
+        }
+
+        .process-step p {
+            color: #71808a;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+
+        /* =========================================
+           CTA
+        ========================================= */
+
+        .service-cta {
+            padding: 90px 0;
+            background:
+                linear-gradient(
+                    135deg,
+                    #102f3f,
+                    #071c2c
+                );
+            color: white;
+        }
+
+        .service-cta .trade-content h2 {
+            color: white;
+        }
+
+        .service-cta .trade-content h2 span {
+            color: #d1a44e;
+        }
+
+        .service-cta .trade-content p:last-child {
+            color: rgba(255,255,255,.7);
+            line-height: 1.8;
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 1000px) {
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .page-hero {
+                padding: 130px 0 70px;
+            }
+
+            .services-section,
+            .process-section {
+                padding: 75px 0;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header class="header">
+
+    <div class="container navbar">
+
+
+        <a href="index.html" class="logo">
+
+            <div class="logo-mark">
+                USN
+            </div>
+
+            <div class="logo-text">
+
+                <strong>
+                    USN GLOBAL TRADE
+                </strong>
+
+                <small>
+                    NEPAL • GLOBAL COMMERCE
+                </small>
+
+            </div>
+
+        </a>
+
+
+        <nav>
+
+            <ul
+                class="nav-links"
+                id="navLinks">
+
+
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="about.html">
+                        About
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="products.html">
+                        Products
+                    </a>
+                </li>
+
+
+                <li>
+                    <a
+                        href="services.html"
+                        class="active">
+
+                        Services
+
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="contact.html">
+                        Contact
+                    </a>
+                </li>
+
+
+                <li>
+                    <a
+                        href="contact.html"
+                        class="nav-enquire">
+
+                        Enquire Now
+
+                    </a>
+                </li>
+
+
+            </ul>
+
+        </nav>
+
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button">
+
+            ☰
+
+        </button>
+
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section class="page-hero">
+
+    <div class="container">
+
+
+        <p class="section-label">
+            OUR SERVICES
+        </p>
+
+
+        <h1>
+
+            Trade Made
+            <span>Simple.</span>
+
+        </h1>
+
+
+        <p>
+
+            From product sourcing to international
+            export support, we help businesses connect
+            with reliable opportunities in Nepal.
+
+        </p>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     SERVICES
+========================================= -->
+
+<section class="services-section">
+
+    <div class="container">
+
+
+        <div class="centered">
+
+            <p class="section-label">
+                WHAT WE DO
+            </p>
+
+
+            <h2>
+
+                Our
+                <span>Services.</span>
+
+            </h2>
+
+
+            <p>
+
+                Professional support for businesses
+                looking to source and trade products
+                from Nepal.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="services-grid">
+
+
+            <div class="service-card">
+
+                <div class="service-number">
+                    01
+                </div>
+
+                <h3>
+                    Export Services
+                </h3>
+
+                <p>
+
+                    We support international buyers
+                    looking to source quality products
+                    from Nepal and connect them with
+                    suitable suppliers.
+
+                </p>
+
+                <a href="contact.html">
+                    Enquire Now →
+                </a>
+
+            </div>
+
+
+
+            <div class="service-card">
+
+                <div class="service-number">
+                    02
+                </div>
+
+                <h3>
+                    Product Sourcing
+                </h3>
+
+                <p>
+
+                    Looking for a specific Nepalese
+                    product? Tell us your requirements
+                    and we can help identify suitable
+                    sourcing opportunities.
+
+                </p>
+
+                <a href="contact.html">
+                    Request Sourcing →
+                </a>
+
+            </div>
+
+
+
+            <div class="service-card">
+
+                <div class="service-number">
+                    03
+                </div>
+
+                <h3>
+                    Supplier Coordination
+                </h3>
+
+                <p>
+
+                    We help coordinate communication
+                    between buyers and suppliers to
+                    make the sourcing process easier
+                    and more efficient.
+
+                </p>
+
+                <a href="contact.html">
+                    Contact Us →
+                </a>
+
+            </div>
+
+
+
+            <div class="service-card">
+
+                <div class="service-number">
+                    04
+                </div>
+
+                <h3>
+                    Bulk Orders
+                </h3>
+
+                <p>
+
+                    Businesses requiring larger
+                    quantities can contact us for
+                    product availability, packaging
+                    and order requirements.
+
+                </p>
+
+                <a href="contact.html">
+                    Discuss Order →
+                </a>
+
+            </div>
+
+
+
+            <div class="service-card">
+
+                <div class="service-number">
+                    05
+                </div>
+
+                <h3>
+                    International Trade Support
+                </h3>
+
+                <p>
+
+                    We assist with communication,
+                    product coordination and other
+                    requirements related to
+                    international trade.
+
+                </p>
+
+                <a href="contact.html">
+                    Learn More →
+                </a>
+
+            </div>
+
+
+
+            <div class="service-card">
+
+                <div class="service-number">
+                    06
+                </div>
+
+                <h3>
+                    Custom Enquiries
+                </h3>
+
+                <p>
+
+                    Have a specific requirement?
+                    Send us your enquiry and we will
+                    discuss how we can assist your
+                    business.
+
+                </p>
+
+                <a href="contact.html">
+                    Send Enquiry →
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     PROCESS
+========================================= -->
+
+<section class="process-section">
+
+    <div class="container">
+
+
+        <div class="centered">
+
+            <p class="section-label">
+                HOW IT WORKS
+            </p>
+
+
+            <h2>
+
+                Simple.
+                <span>Professional.</span>
+
+            </h2>
+
+
+            <p>
+
+                A clear process designed to make
+                international sourcing easier.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="process-grid">
+
+
+            <div class="process-step">
+
+                <span>
+                    01
+                </span>
+
+                <h3>
+                    Send Enquiry
+                </h3>
+
+                <p>
+
+                    Tell us what product or service
+                    you are looking for.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="process-step">
+
+                <span>
+                    02
+                </span>
+
+                <h3>
+                    Discuss Requirements
+                </h3>
+
+                <p>
+
+                    We discuss product specifications,
+                    quantity and other requirements.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="process-step">
+
+                <span>
+                    03
+                </span>
+
+                <h3>
+                    Coordinate
+                </h3>
+
+                <p>
+
+                    We coordinate with relevant
+                    suppliers and trade partners.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="process-step">
+
+                <span>
+                    04
+                </span>
+
+                <h3>
+                    Move Forward
+                </h3>
+
+                <p>
+
+                    Once everything is agreed,
+                    we move forward with the
+                    business process.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     CTA
+========================================= -->
+
+<section class="service-cta">
+
+    <div class="container trade-content">
+
+
+        <div>
+
+            <p class="section-label light">
+                READY TO CONNECT?
+            </p>
+
+
+            <h2>
+
+                Tell us what you
+                <span>need.</span>
+
+            </h2>
+
+
+            <p>
+
+                Whether you are sourcing one product
+                or looking for a long-term trade partner,
+                we would like to hear from you.
+
+            </p>
+
+        </div>
+
+
+        <a
+            href="contact.html"
+            class="btn btn-light">
+
+            Send Enquiry
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer class="footer">
+
+    <div class="container footer-grid">
+
+
+        <div>
+
+            <div class="logo footer-logo">
+
+                <div class="logo-mark">
+                    USN
+                </div>
+
+                <div class="logo-text">
+
+                    <strong>
+                        USN GLOBAL TRADE
+                    </strong>
+
+                    <small>
+                        NEPAL • GLOBAL COMMERCE
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <p>
+
+                Connecting quality Nepalese products
+                with global markets through trusted
+                international trade.
+
+            </p>
+
+        </div>
+
+
+
+        <div>
+
+            <h4>
+                QUICK LINKS
+            </h4>
+
+
+            <a href="index.html">
+                Home
+            </a>
+
+
+            <a href="about.html">
+                About
+            </a>
+
+
+            <a href="products.html">
+                Products
+            </a>
+
+
+            <a href="services.html">
+                Services
+            </a>
+
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </div>
+
+
+
+        <div>
+
+            <h4>
+                PRODUCTS
+            </h4>
+
+
+            <span>
+                Natural Honey
+            </span>
+
+
+            <span>
+                Mad Honey
+            </span>
+
+
+            <span>
+                Dry Fruits
+            </span>
+
+
+            <span>
+                Spices
+            </span>
+
+
+            <span>
+                Cereals
+            </span>
+
+        </div>
+
+
+
+        <div>
+
+            <h4>
+                CONTACT
+            </h4>
+
+
+            <span>
+                usnglobaltradepvtltd@gmail.com
+            </span>
+
+
+            <span>
+                +977 9843115142
+            </span>
+
+
+            <a href="contact.html">
+                Send Enquiry →
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="footer-bottom">
+
+        <div class="container">
+
+            <p>
+
+                ©
+                <span id="year"></span>
+                USN GLOBAL TRADE.
+                All rights reserved.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================
+     SCRIPT
+========================================= -->
+
+<script src="script.js"></script>
+
+
+<script>
+
+    document.getElementById(
+        "year"
+    ).textContent =
+        new Date().getFullYear();
+
+</script>
+
+
+</body>
+
+</html>
+```
